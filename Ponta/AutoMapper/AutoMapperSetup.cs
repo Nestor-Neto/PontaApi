@@ -27,11 +27,11 @@ namespace Application.AutoMapper
         {
             services.AddSingleton(new MapperConfiguration(config =>
             {
-                config.CreateMap<EntradaUsuarioModel, Usuario>();
+                config.CreateMap<InsertUserModel, Usuario>();
 
-                config.CreateMap<EntradaTarefaModel, Tarefas>();
-                config.CreateMap<AtualizacaoTarefaModel, Tarefas>();
-                config.CreateMap<Tarefas, SaidaTarefaModel>();
+                config.CreateMap<InsertTaskModel, Tarefas>();
+                config.CreateMap<AlterTaskModel, Tarefas>();
+                config.CreateMap<Tarefas, TaskModel>();
                 
 
 

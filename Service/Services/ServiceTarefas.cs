@@ -28,13 +28,13 @@ namespace Service.Services
 
             Validate(entity, Activator.CreateInstance<TValidator>());
 
-            Dictionary<string, string> camposvalor = new()
+            Dictionary<string, string> value = new()
             {
                 { "Login", _httpContextAccessor.HttpContext.User.Identity.Name}
             };
-            var usuarioLogado = _repositoryBaseUsuario.SelectText(camposvalor).FirstOrDefault();
+            var userLogged = _repositoryBaseUsuario.SelectText(value).FirstOrDefault();
 
-            entity.IdUsuario = usuarioLogado.Id;
+            entity.IdUsuario = userLogged.Id;
             Validate(entity, Activator.CreateInstance<TValidator>());
             _repositoryBaseTarefas.Insert(entity);
             TOutputModel outputModel = _mapper.Map<TOutputModel>(entity);
@@ -45,10 +45,10 @@ namespace Service.Services
         {
             Tarefas entity = _mapper.Map<Tarefas>(obj);
 
-            Tuple<int, string> usuarioBanco = UsuarioLogado(entity.Id);
+            Tuple<int, string> usuarioBanco = userLogged(entity.Id);
 
             if (!usuarioBanco.Item2.ToUpper().Equals(_httpContextAccessor.HttpContext.User.Identity.Name.ToUpper()))
-                throw new Exception("O Usuário não tem permissão!");
+                throw new Exception("O Usuário não tem permissão para Alterar esta tarefa!");
 
             entity.IdUsuario = usuarioBanco.Item1;
             Validate(entity, Activator.CreateInstance<TValidator>());
@@ -65,12 +65,12 @@ namespace Service.Services
             if (status != 0 && status != 1 && status != 2)
                 throw new Exception("Incorreto! Utilize \n 0 - Pendente \n 1 - Em Conclusão \n 2 - Concluido.");
 
-            Dictionary<string, string> camposvalor = new ()
+            Dictionary<string, string> value = new ()
             {
                 { "Status", status.ToString()}
             };
 
-            var entities = _repositoryBaseTarefas.SelectText(camposvalor);
+            var entities = _repositoryBaseTarefas.SelectText(value);
             var outputModel = entities.Select(entity => _mapper.Map<TOutputModel>(entity));
 
             return outputModel;
@@ -78,16 +78,16 @@ namespace Service.Services
         public override bool Delete(int id)
         {
 
-            Tuple<int, string> usuarioBanco = UsuarioLogado(id);
+            Tuple<int, string> usuarioBanco = userLogged(id);
             if (!usuarioBanco.Item2.ToUpper().Equals(_httpContextAccessor.HttpContext.User.Identity.Name.ToUpper()))
-                throw new Exception("O Usuário não tem permissão!");
+                throw new Exception("Sem premissão para excluir a tarefa!");
 
             _repositoryBaseTarefas.Delete(id);
             return true;    
 
         }
 
-        private Tuple<int, string> UsuarioLogado(int id)
+        private Tuple<int, string> userLogged(int id)
         {
             Tarefas tarefas = _repositoryBaseTarefas.SelectId(id);
             if (tarefas == null)

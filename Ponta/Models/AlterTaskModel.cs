@@ -2,7 +2,7 @@
 
 namespace Application.Models
 {
-    public class AtualizacaoTarefaModel : EntradaTarefaModel
+    public class AlterTaskModel : InsertTaskModel
     {
         public int Id { get; set; }
     }

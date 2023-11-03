@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Servico.Validadores;
+using System.Security.Claims;
 
 namespace Application.Controllers
 {
@@ -41,7 +42,7 @@ namespace Application.Controllers
         public IActionResult ListAll()
         {
             logLabelController = "ListAll";
-            return Execute(() => _serviceBase.ListAll<SaidaTarefaModel>());
+            return Execute(() => _serviceBase.ListAll<TaskModel>());
         }
         /// <summary>
         /// Busca tarefas com base no seu ID de status.
@@ -53,7 +54,7 @@ namespace Application.Controllers
         public IActionResult SelectStatus([FromQuery] int? Idstatus)
         {
             logLabelController = "SelectStatus";
-            return Execute(() => _serviceBase.SelectStatus<SaidaTarefaModel>(Idstatus));
+            return Execute(() => _serviceBase.SelectStatus<TaskModel>(Idstatus));
         }
 
         /// <summary>
@@ -64,10 +65,13 @@ namespace Application.Controllers
         [HttpPost]
         [Route("Insert")]
         [Authorize]
-        public IActionResult Insert([FromBody] EntradaTarefaModel model)
+        public IActionResult Insert([FromBody] InsertTaskModel model)
         {
+
             logLabelController = "Insert";
-            return Execute(() => _serviceBase.Insert<EntradaTarefaModel, Tarefas, ValidatorTarefas>(model));
+            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            model.UserId = int.Parse(userId);
+            return Execute(() => _serviceBase.Insert<InsertTaskModel, Tarefas, ValidatorTarefas>(model));
        
         }
         /// <summary>
@@ -78,14 +82,15 @@ namespace Application.Controllers
         [HttpPost]
         [Route("Update")]
         [Authorize]
-        public IActionResult Update([FromBody] AtualizacaoTarefaModel model)
+        public IActionResult Update([FromBody] AlterTaskModel model)
         {
             if (model == null)
                 return NotFound();
 
             logLabelController = "Update";
-
-            return Execute(() => _serviceBase.Update<AtualizacaoTarefaModel, Tarefas, ValidatorTarefas>(model));
+            var userId = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
+            model.UserId = int.Parse(userId);
+            return Execute(() => _serviceBase.Update<AlterTaskModel, Tarefas, ValidatorTarefas>(model));
         }
         /// <summary>
         /// Exclui a Tarefa

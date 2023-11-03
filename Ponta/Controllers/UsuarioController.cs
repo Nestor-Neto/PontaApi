@@ -39,12 +39,12 @@ namespace Application.Controllers
         [HttpPost]
         [Route("Insert")]
         [AllowAnonymous]
-        public IActionResult Insert([FromBody]  EntradaUsuarioModel modelo)
+        public IActionResult Insert([FromBody]  InsertUserModel modelo)
         {
             if (modelo == null)
                 return NotFound();
 
-            return Execute(() => _serviceBase.Insert<EntradaUsuarioModel, Usuario, ValidatorUsuario>(modelo));
+            return Execute(() => _serviceBase.Insert<InsertUserModel, Usuario, ValidatorUsuario>(modelo));
         }
         private IActionResult Execute(Func<object> func)
         {

@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using Domain.Entities;
 using Domain.Enumerator;
+using System.Reflection.Emit;
+using System.Security.Claims;
 
 namespace Infra.Mapping
 {
@@ -39,13 +41,18 @@ namespace Infra.Mapping
            );
 
             builder.Property(prop => prop.IdUsuario)
+                .IsRequired()
                 .HasColumnName("id_usuario");
 
             builder.HasOne(prop => prop.Usuario)
                 .WithMany()
+                .IsRequired()
                 .HasForeignKey(prop => prop.IdUsuario)
                 .HasConstraintName("fk_usuario")
-                .OnDelete(DeleteBehavior.Restrict); 
+                .OnDelete(DeleteBehavior.Restrict);
+
+
+
 
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Application.Models
 {
-    public class EntradaUsuarioModel
+    public class InsertUserModel
     {
         public string Nome { get; set; }
         public string Login { get; set; }

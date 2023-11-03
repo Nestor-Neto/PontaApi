@@ -2,7 +2,7 @@
 
 namespace Application.Models
 {
-    public class SaidaTarefaModel
+    public class TaskModel
     {
         public int Id { get; set; }
         public string Titulo { get; set; }
