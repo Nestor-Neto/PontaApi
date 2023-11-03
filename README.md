@@ -30,6 +30,7 @@ Com o projeto em execução crie o primeiro usuário no endpoint (/Login/Insert)
 -  "login": "nestor.neto",
 -  "senha": "123"
 -}
+
 ## 🚀 Autenticação e Autorização do usuário
 - A API suporta autenticação de usuários. 
 - Apenas os criadores das tarefas devem poder atualizá-las ou excluí-las. 
