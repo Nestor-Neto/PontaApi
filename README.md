@@ -65,9 +65,13 @@ Com o projeto em execução crie o primeiro usuário no endpoint ( /Login/Insert
 - Crie(endpoint: /Tarefas/Insert ), listar (endpoint: /Tarefas/ListAll ), atualize endpoint: /Tarefas/Update ) e exclua tarefas endpoint: /Tarefas/Delete ). 
 Cada tarefa tem um título, uma descrição, uma data de criação e um status.
 - Os status são:
-- 0 – Pendente.
-- 1 – Em Andamento.
-- 2 – Concluído.
+
+|Id                 |	Description  |	
+|-------------------|--------------- |
+|0                  |	Pendente     |
+|1                  |	Em Andamento | 
+|2                  |	Concluído    | 
+
 -  Os usuários podem listar (endpoint: /Tarefas/ListAll ) todas as tarefas.
 -  Os usuários podem filtrá-las com base em seu status (endpoint: /Tarefas/SelectStatus ). 
 
