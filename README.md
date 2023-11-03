@@ -74,8 +74,7 @@ Cada tarefa tem um título, uma descrição, uma data de criação e um status.
 
 ## 🚀 Testes Unitários: 
 Foi criado o projeto para testes da API. Com a intenção de garantindo a qualidade do código. Eles ajudam a identificar erros, documentam o código, facilitam a refatoração e proporcionam confiabilidade ao software
-- Projeto:
-- Tests: Contém o código-fonte da camada de aplicação.
+- Projeto: Tests 
 
 ## Logs: 
 - Foi implementado logs para rastrear eventos importantes na API, então quanto iniciar a aplicação será gerado o monitoramento e rastreamento de toda aplicação em arquivo.txt
@@ -99,6 +98,9 @@ Foi criado o projeto para testes da API. Com a intenção de garantindo a qualid
 - Domain: Contém o código-fonte da camada de Domínio, definido através do padrão Domain Model, aqui foi definido modelo de negócios em termos de classes.
 - Service: Contém o código-fonte da camada de serviço,que contém regras e comportamentos referentes ao Modelo de domínio.
 - Infrastructure: Contém o código-fonte da camada de Infraestrutura. Os repositórios de dados são definidos através de um padrão: o padrão Repository, onde o Modelo do domínio está livre de qualquer definição de infraestrutura de dados.
+
+## 📝 Design Patterns MVC - Model View Controller
+MVC é um padrão de design usado para desacoplar interface do usuário (visualização), dados (modelo) e lógica do aplicativo (controlador). Esse padrão ajuda a conseguir a separação de preocupações.
 
 
 ## 📝 Licença
