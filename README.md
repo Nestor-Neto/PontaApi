@@ -14,8 +14,8 @@ Após instalar e configurar criar uma senha no posgresSql.
 
 ## 📝 ORM Entity Framework 
 O EF funciona com diversos banco de dados. O ORM, facilita o acesso ao banco de dados, mapeando suas tabelas.
-Abra o prompt de comando e ponte para o projeto Infrastruture e execute as migrations, que irá adicionar o banco as tabelas.
-Ex:
+- Abra o prompt de comando e ponte para o projeto Infrastruture e execute as migrations, que irá adicionar o banco as tabelas.
+- Ex:
 |Console            |	Description                                              |	
 |-------------------|------------------------------------------------------------|
 |add-migration      |	Create a new migration with the specific migration name. |	                                  | 
@@ -24,29 +24,30 @@ Ex:
 
 # 🚀 Primeiro acesso a API
 Com o projeto em execução crie o primeiro usuário no endpoint (/Login/Insert).
-Ex: 
-{
-  "nome": "Nestor",
-  "login": "nestor.neto",
-  "senha": "123"
-}
+- Exemplo: 
+-{
+-  "nome": "Nestor",
+-  "login": "nestor.neto",
+-  "senha": "123"
+-}
 ## 🚀 Autenticação e Autorização do usuário
-•	A API suporta autenticação de usuários. 
-•	Apenas os criadores das tarefas devem poder atualizá-las ou excluí-las. 
-•	As tarefas é visíveis a todos os usuários autenticados.
+- A API suporta autenticação de usuários. 
+- Apenas os criadores das tarefas devem poder atualizá-las ou excluí-las. 
+- As tarefas é visíveis a todos os usuários autenticados.
 # Token
  Primeiro passo: Com o projeto em execução crie o token no endpoint (/Login/Login), informando o login e a senha, a API retornará seu token.
-Ex: 
-Envio
-{
-  "login": "nestor.neto",
-  "senha": "123"
-}
-retorno da API
-{
+- Exemplo: 
+- Envio
+- {
+-   "login": "nestor.neto",
+-   "senha": "123"
+- }
+- retorno da API
+- {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJuZXN0b3IubmV0byIsIm5iZiI6MTY5OTAzODgyMSwiZXhwIjoxNjk5MDUzMjIxLCJpYXQiOjE2OTkwMzg4MjF9.oubC2b2e0UBfLBQcwIJ7StiBZWMDogh50zfdFY1HOmE"
 }
-Copie o Token.
+- Copie o Token.
+
 # Autenticação
 Com o projeto em execução, clique no botão authorize da API(icone de cadeado), informe o token no campo (Value)que foi gerado no Primeiro passo. 
 Exemplo:(Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJuZXN0b3IubmV0byIsIm5iZiI6MTY5OTAzODgyMSwiZXhwIjoxNjk5MDUzMjIxLCJpYXQiOjE2OTkwMzg4MjF9.oubC2b2e0UBfLBQcwIJ7StiBZWMDogh50zfdFY1HOmE).
