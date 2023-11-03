@@ -11,6 +11,7 @@ A API RESTful que permitirá aos usuários gerenciar uma lista de tarefas, a API
 Após instalar e configurar criar uma senha no posgresSql. 
 - Abrar o projeto e configure a senha e a porta(padrão 5433) no ConnectionString do arquivo appsettings.json do projeto Application.
 - Exemplo: 
+
 - "ConnectionString": "User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=PontaBD;Pooling=true;Connection Lifetime=0;Include Error Detail=true;",
 
 ## 📝 ORM Entity Framework 
@@ -26,6 +27,7 @@ O EF funciona com diversos banco de dados. O ORM, facilita o acesso ao banco de 
 # 🚀 Primeiro acesso a API
 Com o projeto em execução crie o primeiro usuário no endpoint ( /Login/Insert ).
 - Exemplo: 
+
 {
   "nome": "Nestor",
   "login": "nestor.neto",
@@ -40,21 +42,24 @@ Com o projeto em execução crie o primeiro usuário no endpoint ( /Login/Insert
  Primeiro passo: Com o projeto em execução crie o token no endpoint ( /Login/Login ), informando o login e a senha, a API retornará seu token.
 - Exemplo: 
 - Envio
+
 {
   "login": "nestor.neto",
   "senha": "123"
 }
+
 - retorno da API
-- 
+
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJuZXN0b3IubmV0byIsIm5iZiI6MTY5OTAzODgyMSwiZXhwIjoxNjk5MDUzMjIxLCJpYXQiOjE2OTkwMzg4MjF9.oubC2b2e0UBfLBQcwIJ7StiBZWMDogh50zfdFY1HOmE"
 }
+
 - Copie o Token.
 
 # Autenticação
 - Com o projeto em execução, clique no botão authorize da API(icone de cadeado), informe o token no campo (Value) que foi gerado no Primeiro passo. 
 - Exemplo:
-* 
+
 (Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIxIiwidW5pcXVlX25hbWUiOiJuZXN0b3IubmV0byIsIm5iZiI6MTY5OTAzODgyMSwiZXhwIjoxNjk5MDUzMjIxLCJpYXQiOjE2OTkwMzg4MjF9.oubC2b2e0UBfLBQcwIJ7StiBZWMDogh50zfdFY1HOmE).
 
 ## 📝 Documentação: 
