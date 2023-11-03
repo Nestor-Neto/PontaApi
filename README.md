@@ -12,7 +12,7 @@ Após instalar e configurar criar uma senha no posgresSql.
 - Abrar o projeto e configure a senha e a porta(padrão 5433) no ConnectionString do arquivo appsettings.json do projeto Application.
 - Exemplo: 
 
-- "ConnectionString": "User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=PontaBD;Pooling=true;Connection Lifetime=0;Include Error Detail=true;",
+"ConnectionString": "User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=PontaBD;Pooling=true;Connection Lifetime=0;Include Error Detail=true;",
 
 ## 📝 ORM Entity Framework 
 O EF funciona com diversos banco de dados. O ORM, facilita o acesso ao banco de dados, mapeando suas tabelas.
