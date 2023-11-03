@@ -4,13 +4,14 @@
 A API RESTful que permitirá aos usuários gerenciar uma lista de tarefas, a API deve seguir as melhores práticas de desenvolvimento, incluindo boas práticas de arquitetura, segurança e documentação. 
 
 ## 💻 Pré-requisitos
-instalar a Versão donet 6.0 e visual studio (https://visualstudio.microsoft.com/pt-br/vs/community/) ou Visual Studio Code (https://code.visualstudio.com/download)
-Instalar posgresSql [https://www.enterprisedb.com/downloads/postgres-postgresql-downloads].
+- instalar a Versão donet 6.0 e visual studio (https://visualstudio.microsoft.com/pt-br/vs/community/) ou Visual Studio Code (https://code.visualstudio.com/download)
+- Instalar posgresSql [https://www.enterprisedb.com/downloads/postgres-postgresql-downloads].
 
 # posgresSql 
 Após instalar e configurar criar uma senha no posgresSql. 
-Abrar o projeto e configure a senha e a porta(padrão 5433) no ConnectionString do arquivo appsettings.json do projeto Application.
-Ex: "ConnectionString": "User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=PontaBD;Pooling=true;Connection Lifetime=0;Include Error Detail=true;",
+- Abrar o projeto e configure a senha e a porta(padrão 5433) no ConnectionString do arquivo appsettings.json do projeto Application.
+- Ex: "ConnectionString": "User ID=postgres;Password=1234;Host=localhost;Port=5432;Database=PontaBD;Pooling=true;Connection Lifetime=0;Include Error Detail=true;",
+
 ## 📝 ORM Entity Framework 
 O EF funciona com diversos banco de dados. O ORM, facilita o acesso ao banco de dados, mapeando suas tabelas.
 Abra o prompt de comando e ponte para o projeto Infrastruture e execute as migrations, que irá adicionar o banco as tabelas.
